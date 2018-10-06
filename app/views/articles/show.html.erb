@@ -1,3 +1,5 @@
+<h2>Article</h2>
+
 <p>
   <strong>Title:</strong>
   <br>
@@ -9,6 +11,12 @@
   <br>
   <%= @article.text %>
 </p>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
 
 <br>
 <%= link_to 'Home', root_path %>
