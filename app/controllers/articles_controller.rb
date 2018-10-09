@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# ArticlesController CRUD documentation
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "peter", password: "password", except: [:index, :show]
+  http_basic_authenticate_with name: 'peter',
+  password: 'password', except:  %i[index show]
 
   def index
     @articles = Article.all
@@ -29,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-   
+
     if @article.update(article_params)
       redirect_to @article
     else
@@ -40,14 +44,13 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-   
+
     redirect_to articles_path
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :text)
   end
-  
-
 end
