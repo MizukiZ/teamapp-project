@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require bootstrap-sprockets
 //= require xtreme/articles.index.js
 //= require xtreme/datatables.min.js
 //= require xtreme/jquery.datatables.min.js
