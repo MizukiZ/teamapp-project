@@ -1,0 +1,8 @@
+<p>
+  <%= player.name %>
+</p>
+<p>
+  <%= link_to 'Destroy Comment', [player.team, player],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
