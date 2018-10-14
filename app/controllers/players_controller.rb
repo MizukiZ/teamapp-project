@@ -9,6 +9,10 @@ class PlayersController < ApplicationController
     @player = @team.players.find(params[:team_id])
   end
 
+  def new
+    @player = Player.new
+  end
+
   def edit
     @team = Team.find(params[:id])
     @player = @team.players.find(params[:team_id])
