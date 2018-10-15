@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require turbolinks
+//= require xtreme/jquery.datatables.js
 //= require bootstrap-sprockets
-//= require xtreme/articles.index.js
-//= require xtreme/datatables.min.js
-//= require xtreme/jquery.datatables.min.js
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .

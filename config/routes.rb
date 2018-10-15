@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  
+  root 'welcome#index'
+
   get 'welcome/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :articles do
     resources :comments
@@ -12,5 +14,7 @@ Rails.application.routes.draw do
     resources :players
   end
 
-  root 'welcome#index'
+
+  get '/assets/images/:name.:ext', to: redirect('/assets/%{name}.%{ext}'), constraints: { name: /.+/, ext: /(jpg|png|gif)/ }
+
 end
