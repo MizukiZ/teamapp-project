@@ -66,6 +66,7 @@ initApp = function() {
             }
             document.getElementById('photo').src = photoURL;
             document.getElementById('photo').style.display = 'block';
+            document.getElementById('firebaseui-container').style.display = 'none';
             document.getElementById('loading').style.display = 'none';
           } else {
             document.getElementById('photo').style.display = 'none';
