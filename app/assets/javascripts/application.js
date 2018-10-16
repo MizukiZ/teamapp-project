@@ -11,15 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require xtreme/articles.index.js
-//= require xtreme/datatables.min.js
-//= require xtreme/jquery.datatables.min.js
-//= require rails-ujs
-//= require activestorage
 //= require config.js
 //= require firebase.js
-//= require turbolinks
+//= require xtreme/jquery.datatables.js
+//= require activestorage
 //= require_tree .

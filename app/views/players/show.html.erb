@@ -1,0 +1,12 @@
+<h2>Player: <%= @player.name %></h2>
+<br>
+
+
+<p>Name: <%= @player.name %></p>
+<p>Date Added: <%= @player.created_at %></p>
+<p>Date Last Edited: <%= @player.updated_at %></p>
+                           
+<br>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'Back', :back %> |
+<%= link_to 'Teams', teams_path %>

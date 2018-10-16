@@ -1,5 +1,5 @@
 var uiConfig = {
-  signInSuccessUrl: '/articles',
+  signInSuccessUrl: '/teams',
   signInOptions: [
     // Providers.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -44,6 +44,7 @@ initApp = function() {
                 .auth()
                 .signOut()
                 .then(function() {
+                  window.location = "http://localhost:3000";
                   alert('You have Signed Out. Please sign In');
                 })
                 .catch(function(error) {
@@ -72,7 +73,7 @@ initApp = function() {
         });
       } else {
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
+        document.getElementById('sign-in-status').style.display = 'none';
         document.getElementById('sign-in').style.display = 'none';
         document.getElementById('photo').style.display = 'none';
       }
