@@ -44,7 +44,7 @@ initApp = function() {
                 .auth()
                 .signOut()
                 .then(function() {
-                  window.location = "http://localhost:3000";
+                  window.location = 'http://localhost:3000';
                   alert('You have Signed Out. Please sign In');
                 })
                 .catch(function(error) {
@@ -66,7 +66,8 @@ initApp = function() {
             }
             document.getElementById('photo').src = photoURL;
             document.getElementById('photo').style.display = 'block';
-            document.getElementById('loading').style.display = 'none';
+            document.getElementById('firebaseui-auth-container').style.display =
+              'none';
           } else {
             document.getElementById('photo').style.display = 'none';
           }
