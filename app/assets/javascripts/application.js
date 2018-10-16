@@ -16,6 +16,9 @@
 //= require bootstrap-sprockets
 //= require config.js
 //= require firebase.js
-//= require xtreme/jquery.datatables.js
+//= require adminx/jquery.datatables.js
+//= require adminx/datatable.js
+//= require adminx/adminx.js
+//= require adminx/app.min.js
 //= require activestorage
 //= require_tree .
