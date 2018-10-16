@@ -1,4 +1,17 @@
 var uiConfig = {
+  callbacks: {
+    signInSuccess: function(user, credential, redirectUrl) {
+      if (window.opener) {
+        // The widget has been opened in a popup, so close the window
+        // and return false to not redirect the opener.
+        window.close();
+        return false;
+      } else {
+        // The widget has been used in redirect mode, so we redirect to the signInSuccessUrl.
+        return true;
+      }
+    }
+  },
   signInSuccessUrl: '/teams',
   signInOptions: [
     // Providers.
@@ -44,7 +57,7 @@ initApp = function() {
                 .auth()
                 .signOut()
                 .then(function() {
-                  window.location = "http://localhost:3000";
+                  window.location = 'http://localhost:3000';
                   alert('You have Signed Out. Please sign In');
                 })
                 .catch(function(error) {
@@ -66,7 +79,8 @@ initApp = function() {
             }
             document.getElementById('photo').src = photoURL;
             document.getElementById('photo').style.display = 'block';
-            document.getElementById('loading').style.display = 'none';
+            document.getElementById('firebaseui-auth-container').style.display =
+              'none';
           } else {
             document.getElementById('photo').style.display = 'none';
           }
