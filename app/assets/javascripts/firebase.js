@@ -1,17 +1,4 @@
 var uiConfig = {
-  callbacks: {
-    signInSuccess: function(user, credential, redirectUrl) {
-      if (window.opener) {
-        // The widget has been opened in a popup, so close the window
-        // and return false to not redirect the opener.
-        window.close();
-        return false;
-      } else {
-        // The widget has been used in redirect mode, so we redirect to the signInSuccessUrl.
-        return true;
-      }
-    }
-  },
   signInSuccessUrl: '/teams',
   signInOptions: [
     // Providers.
