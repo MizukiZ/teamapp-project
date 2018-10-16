@@ -10,7 +10,8 @@ class PlayersController < ApplicationController
   end
 
   def new
-    @player = Player.new
+    @team = Team.find(params[:id])
+    @player = @team.player.new
   end
 
   def edit
@@ -21,12 +22,12 @@ class PlayersController < ApplicationController
   def create
     @team = Team.find(params[:team_id])
     @player = @team.players.create(player_params)
-    redirect_to team_path(@team)
+    redirect_to @team
   end
 
   def update
-    @team = Team.find(params[:team_id])
-    @player = @team.players.find(params[:id])
+    @team = Team.find(params[:id])
+    @player = @team.players.find(params[:team_id])
     if @team.players.update(player_params)
       redirect_to @team
     else

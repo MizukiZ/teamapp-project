@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
-//= require xtreme/jquery.datatables.js
-//= require bootstrap-sprockets
 //= require rails-ujs
+//= require turbolinks
+//= require bootstrap-sprockets
 //= require activestorage
+//= require xtreme/jquery.datatables.js
 //= require_tree .
