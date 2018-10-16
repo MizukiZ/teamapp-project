@@ -19,5 +19,7 @@
 //= require xtreme/jquery.datatables.min.js
 //= require rails-ujs
 //= require activestorage
+//= require config.js
+//= require firebase.js
 //= require turbolinks
 //= require_tree .

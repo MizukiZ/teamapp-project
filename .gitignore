@@ -28,3 +28,4 @@
 
 # Ignore firebase config
 
+/app/assets/javascripts/config.js
