@@ -14,6 +14,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require activestorage
+//= require config.js
+//= require firebase.js
 //= require xtreme/jquery.datatables.js
+//= require activestorage
 //= require_tree .
