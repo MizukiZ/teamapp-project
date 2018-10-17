@@ -1,5 +1,5 @@
 var uiConfig = {
-  signInSuccessUrl: '/teams',
+  signInSuccessUrl: '/',
   signInOptions: [
     // Providers.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -44,7 +44,7 @@ initApp = function() {
                 .auth()
                 .signOut()
                 .then(function() {
-                  window.location = "http://localhost:3000";
+                  window.location = '/';
                   alert('You have Signed Out. Please sign In');
                 })
                 .catch(function(error) {
@@ -66,8 +66,8 @@ initApp = function() {
             }
             document.getElementById('photo').src = photoURL;
             document.getElementById('photo').style.display = 'block';
-            document.getElementById('firebaseui-container').style.display = 'none';
-            document.getElementById('loading').style.display = 'none';
+            document.getElementById('firebaseui-auth-container').style.display =
+              'none';
           } else {
             document.getElementById('photo').style.display = 'none';
           }
