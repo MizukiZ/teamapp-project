@@ -17,6 +17,5 @@
 //= require config.js
 //= require firebase.js
 //= require jquery.datatables.js
-//= require datatable.js
 //= require activestorage
 //= require_tree .
