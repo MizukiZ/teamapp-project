@@ -88,6 +88,6 @@ initApp = function() {
 // User logged in for duration of session
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
-window.addEventListener('load', function() {
+window.addEventListener('turbolinks:load', function() {
   initApp();
 });
