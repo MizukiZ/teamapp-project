@@ -1,7 +1,6 @@
-<h2>Team: <%= @team.name %></h2>
-<br>
+<h2><%= @team.name %></h2>
 
-<h4>Players</h4>
+<h4>Players List</h4>
 
 <div class="row">
     <div class="col-12">
@@ -39,10 +38,6 @@
         </div>
     </div>
 </div>
-
-<h4>Add new player</h4>
-<%= render 'players/form' %>
-
 <br>
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Teams', teams_path %>
+<h4>Add New Player</h4>
+<%= render 'players/form' %>
