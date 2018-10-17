@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w( config.js )
 Rails.application.config.assets.precompile += %w( firebase.js )
+Rails.application.config.assets.precompile += %w( datatable.js )
