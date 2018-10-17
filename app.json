@@ -1,15 +1,10 @@
 {
   "name": "teamapp-project",
   "description": "A Ruby-On-Rails prototype project",
-  "scripts": {
-  },
-  "env": {
-  },
-  "formation": {
-  },
-  "addons": [
-
-  ],
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-ruby"

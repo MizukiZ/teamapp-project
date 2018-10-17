@@ -1,5 +1,5 @@
 var uiConfig = {
-  signInSuccessUrl: '/teams',
+  signInSuccessUrl: '/',
   signInOptions: [
     // Providers.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -44,7 +44,7 @@ initApp = function() {
                 .auth()
                 .signOut()
                 .then(function() {
-                  window.location = 'http://localhost:3000';
+                  window.location = '/';
                   alert('You have Signed Out. Please sign In');
                 })
                 .catch(function(error) {
