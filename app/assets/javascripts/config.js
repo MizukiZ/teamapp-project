@@ -5,5 +5,5 @@ var config = {
   projectId: 'teamapp-project-debc5',
   storageBucket: 'teamapp-project-debc5.appspot.com',
   messagingSenderId: '255431340262'
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);

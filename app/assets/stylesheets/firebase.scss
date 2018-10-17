@@ -1,7 +1,7 @@
-#sign-in-status {
-  text-align: right;
-  margin-right: 50px;
+#sign-in {
+  margin-top: 12px;
 }
+
 #photo {
   display: block;
   float: right;
@@ -11,6 +11,6 @@
   border-radius: 50% 50%;
 }
 
-#sign-in {
-  float: right;
+#firebaseui-auth-container {
+  margin-top: 20%;
 }
