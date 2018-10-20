@@ -75,6 +75,7 @@ initApp = function() {
       } else {
         // User is signed out.
         document.getElementById('sign-in-status').style.display = 'none';
+        document.getElementById('btn btn-primary').style.display = 'none';
         document.getElementById('sign-in').style.display = 'none';
         document.getElementById('photo').style.display = 'none';
       }
