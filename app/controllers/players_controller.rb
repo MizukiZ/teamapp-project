@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
-    @player = @team.players.find(params[:team_id])
+    @player = Player.find(params[:team_id])
   end
 
   def create
@@ -26,12 +26,13 @@ class PlayersController < ApplicationController
   end
 
   def update
-    @team = Team.find(params[:id])
-    @player = @team.players.find(params[:team_id])
-    if @team.players.update(player_params)
+    @team = Team.find(params[:team_id])
+    @player = Player.find(params[:id])
+
+    if @player.update(player_params)
       redirect_to @team
     else
-      render 'edit'
+      redirect_back(fallback_location: edit_team_player_path)
     end
   end
 
@@ -45,7 +46,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:name)
+    params.require(:player).permit(:id, :name)
   end
 end
 
