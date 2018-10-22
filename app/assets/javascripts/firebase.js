@@ -34,6 +34,8 @@ initApp = function() {
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
         user.getIdToken().then(function(accessToken) {
+          document.getElementById('firebaseui-auth-container').style.display =
+              'none';
           document.getElementById('sign-in-status').textContent =
             'Signed in as: ' + `${user.displayName}`;
           document.getElementById('sign-in').textContent = 'Sign out';
