@@ -19,3 +19,8 @@
 //= require jquery.datatables.js
 //= require activestorage
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function() {
+  $('#zero_config').DataTable()
+} );
