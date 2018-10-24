@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   
-  root 'welcome#index'
+  root 'login#index'
 
-  get 'welcome/index'
+  get 'login/index'
 
   resources :teams do
     resources :players
