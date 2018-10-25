@@ -1,0 +1,22 @@
+<h1>Register</h1>
+
+<%= form_with @user do |form| %>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+  <p>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+  </p>
+  <%= submit_tag "Register", onclick: "return firebase.auth();" %>
+<% end %>
+
+<script>
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log('registration error', error);
+  });
+</script>
