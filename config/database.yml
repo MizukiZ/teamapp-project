@@ -77,4 +77,4 @@ production:
   <<: *default
   database: teamcreator_production
   username: teamcreator
-  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
+  password: 78uyOI*(
