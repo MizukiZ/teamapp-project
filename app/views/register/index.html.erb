@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<%= form_with @user do |form| %>
+<%= form_with url: register_index_path do |form| %>
   <p>
     <%= form.label :email %><br>
     <%= form.text_field :email %>
