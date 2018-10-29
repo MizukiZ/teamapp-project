@@ -1,15 +1,12 @@
+// FirebaseUI config.
 var uiConfig = {
-  signInSuccessUrl: '/',
+  signInSuccessUrl: '/teams',
   signInOptions: [
     // Providers.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     firebase.auth.TwitterAuthProvider.PROVIDER_ID
-  ],
-  // Terms of service url.
-  tosUrl: 'https://www.google.com',
-  // Privacy policy url.
-  privacyPolicyUrl: 'https://www.google.com'
+  ]
 };
 
 // Initialize the FirebaseUI Widget using Firebase.
@@ -17,7 +14,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 // The start method will wait until the DOM is loaded.
 ui.disableAutoSignIn();
-
 ui.start('#firebaseui-auth-container', uiConfig);
 
 // Initialize the app
@@ -34,14 +30,12 @@ initApp = function() {
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
         user.getIdToken().then(function(accessToken) {
-          document.getElementById('sign-in-status').textContent =
-          'Signed in as: ' + `${user.displayName}`;
-          document.getElementById('firebaseui-auth-container').style.display =
-              'none';
+          document.getElementById('sign-in-status').textContent = 'Signed in as: ' + `${user.displayName}`;
+          //FIXME: added style.display none to stop auth container rendering after login, auth container not showing unless page is refreshed after logout.
+          document.getElementById('firebaseui-auth-container').style.display = 'none';
           document.getElementById('sign-in').textContent = 'Sign out';
-          document
-            .getElementById('sign-in')
-            .addEventListener('click', function() {
+          //TODO: not sure why this is here
+          document.getElementById('sign-in').addEventListener('click', function() {
               firebase
                 .auth()
                 .signOut()

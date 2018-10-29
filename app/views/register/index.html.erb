@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<!-- Container for Firebase UI -->
+<!-- Container for Firebase UI from Firebase Git-->
 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
   <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
     <h2 class="mdl-card__title-text">Firebase Email &amp; Password Authentication</h2>
@@ -28,7 +28,26 @@
     </div>
   </div>
 </div>
+
 <br>
+
+<!-- Firebase demo from online tutorial - https://howtofirebase.com/firebase-authentication-for-web-d58aad62cf6d -->
+<form>
+  <div>
+    <input id="email" type="text" placeholder="Email...">
+  </div>
+  <div>
+    <input id="password" type="password" placeholder="Password...">
+  </div>
+  <div>
+    <button id="sign-in">Sign In/Register</button>
+    <button id="sign-out">Sign Out</button>
+  </div>
+</form>
+
+<br>
+
+<!-- My basic rails register form requiring email and password -->
 <h3>Basic Register Form</h3>
 <%= form_with url: register_index_path do |form| %>
   <p>
@@ -41,12 +60,3 @@
   </p>
   <%= submit_tag "Register", onclick: "return firebase.auth();" %>
 <% end %>
-
-<script>
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log('registration error', error);
-  });
-</script>
