@@ -21,7 +21,7 @@ initApp = function() {
   firebase.auth().onAuthStateChanged(
     function(user) {
       if (user) {
-        // User is signed in.
+        // User is signed in. (none of this is being used, this needs to be saved to user db)
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -31,43 +31,40 @@ initApp = function() {
         var providerData = user.providerData;
         user.getIdToken().then(function(accessToken) {
           document.getElementById('sign-in-status').textContent = 'Signed in as: ' + `${user.displayName}`;
-          //FIXME: added style.display none to stop auth container rendering after login, auth container not showing unless page is refreshed after logout.
+          //FIXME: added style.display none to stop auth container rendering after login, auth container not showing unless page is refreshed after logout though. This needs to be rectified.
           document.getElementById('firebaseui-auth-container').style.display = 'none';
           document.getElementById('sign-in').textContent = 'Sign out';
-          //TODO: not sure why this is here
-          document.getElementById('sign-in').addEventListener('click', function() {
-              firebase
-                .auth()
-                .signOut()
-                .then(function() {
-                  window.location = '/';
-                  alert('You have Signed Out. Please sign In');
-                })
-                .catch(function(error) {
-                  // An error happened.
-                  alert('An error happened');
-                });
-              // Sign-out successful.
-            });
-          if (user.photoURL) {
-            var photoURL = user.photoURL;
-            if (
-              photoURL.indexOf('googleusercontent.com') != -1 ||
-              photoURL.indexOf('ggpht.com') != -1
-            ) {
-              photoURL =
-                photoURL +
-                '?sz=' +
-                document.getElementById('photo').clientHeight;
-            }
-            document.getElementById('photo').src = photoURL;
-            document.getElementById('photo').style.display = 'block';
-            document.getElementById('firebaseui-auth-container').style.display =
-              'none';
-          } else {
-            document.getElementById('photo').style.display = 'none';
-          }
+          document.getElementById('account-details').textContent = JSON.stringify({
+            displayName: displayName,
+            email: email,
+            emailVerified: emailVerified,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            uid: uid,
+            accessToken: accessToken,
+            providerData: providerData
+          }, null, '  ');
+
         });
+
+
+          //TODO: not sure why this is here, remove if unnecessary
+          document.getElementById('sign-in').addEventListener('click', function() {
+            firebase
+              .auth()
+              .signOut()
+              .then(function() {
+                window.location = '/';
+                alert('You have Signed Out. Please sign In');
+              })
+              .catch(function(error) {
+                // An error happened.
+                alert('An error happened');
+              });
+            // Sign-out successful.
+          });
+
+
       } else {
         // User is signed out.
         document.getElementById('sign-in-status').style.display = 'none';
