@@ -1,28 +1,15 @@
-// ORIGINAL START HERE
-// // FirebaseUI config.
-// var uiConfig = {
-//   signInSuccessUrl: '/teams',
-//   signInOptions: [
-//     // Providers.
-//     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-//     firebase.auth.PhoneAuthProvider.PROVIDER_ID
-//   ],
-//   // Terms of service url
-//   tosUrl: 'https://www.teamapp.com/terms',
-//   // Privacy policy url
-//   privacyPolicyUrl: 'https://www.teamapp.com/privacy'
-// };
+// NOTE: Ruegen notes start
+// make a user controller
+// make a model method that verifies a firebase token and obtains info
+// if token valid via http post then create user and post back to frontend 200
+// if token invalid post back to frontend error 500
+// save information to user model and everytime they login you do an ajax to verify that information
 
-// // Initialize the FirebaseUI Widget using Firebase.
-// var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-// // The start method will wait until the DOM is loaded.
-// ui.disableAutoSignIn();
-// ui.start('#firebaseui-auth-container', uiConfig);
-// ORIGINAL ENDS HERE
+// function firebaseFailure() {
+//   // reason for function is so that if the backend user firebase verification fails
+//   // localStorage// access_token remove token logout
+// }
+// NOTE: Ruegen notes end
 
 // LATEST STARTS HERE
 // FirebaseUI config.
@@ -37,6 +24,14 @@ var uiConfig = {
       // Do something with the returned AuthResult.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
+
+      // NOTE: Ruegen notes start
+      // api call to your backend
+      // var url = "http://"
+      // $.post(url).then()
+      // sessions to allow access to post
+      // NOTE: Ruegen notes end
+
       return true;
     },
     signInFailure: function(error) {
