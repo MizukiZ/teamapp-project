@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="google-site-verification" content="EV8XaWJLIAN4UWa0QCe9OOdr8iINFRMxk-yAxn6BCcc" />
-  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-  
-  <%= javascript_include_tag('config.js') %>
-  <%= javascript_include_tag('firebase.js') %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
-  <link type="text/scss" rel="stylesheet" src="/app/assets/stylesheets/firebase.scss" />
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Rails default meta tags -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <title>Team Creator</title>
+    <!-- Firebase site auth and external scripts -->
+    <meta name="google-site-verification" content="EV8XaWJLIAN4UWa0QCe9OOdr8iINFRMxk-yAxn6BCcc" />
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+    
+    <!-- Firebase locally stored scripts -->
+    <%= javascript_include_tag('config.js') %>
+    <%= javascript_include_tag('firebase.js') %>
 
-  <!-- adminx theme head content -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- end adminx theme head content -->
+    <!-- Material Design Theming -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    
+    <!-- Firebase local and external css files -->
+    <link type="text/scss" rel="stylesheet" src="/app/assets/stylesheets/firebase.scss" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
 
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+    <!-- Rails default js and css link tags -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <title>Team Creator</title>
   </head>
 
   <body>
