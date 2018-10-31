@@ -20,6 +20,55 @@ ui.disableAutoSignIn();
 
 ui.start('#firebaseui-auth-container', uiConfig);
 
+function handleSignUp() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  if (email.length < 4) {
+    alert('Please enter an email address.');
+    return;
+  }
+  if (password.length < 4) {
+    alert('Please enter a password.');
+    return;
+  }
+  // Sign in with email and pass.
+  // [START createwithemail]
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+  // [END createwithemail]
+}
+
+/**
+ * Sends an email verification to the user.
+ */
+function sendEmailVerification() {
+  // [START sendemailverification]
+  firebase
+    .auth()
+    .currentUser.sendEmailVerification()
+    .then(function() {
+      // Email Verification sent!
+      // [START_EXCLUDE]
+      alert('Email Verification Sent!');
+      // [END_EXCLUDE]
+    });
+  // [END sendemailverification]
+}
+
 // Initialize the app
 initApp = function() {
   firebase.auth().onAuthStateChanged(
@@ -35,9 +84,9 @@ initApp = function() {
         var providerData = user.providerData;
         user.getIdToken().then(function(accessToken) {
           document.getElementById('sign-in-status').textContent =
-          'Signed in as: ' + `${user.displayName}`;
+            'Signed in as: ' + `${user.displayName}`;
           document.getElementById('firebaseui-auth-container').style.display =
-              'none';
+            'none';
           document.getElementById('sign-in').textContent = 'Sign out';
           document
             .getElementById('sign-in')
@@ -76,6 +125,9 @@ initApp = function() {
         });
       } else {
         // User is signed out.
+        document
+          .getElementById('quickstart-sign-up')
+          .addEventListener('click', handleSignUp, false);
         document.getElementById('sign-in-status').style.display = 'none';
         document.getElementById('btn btn-primary').style.display = 'none';
         document.getElementById('sign-in').style.display = 'none';
