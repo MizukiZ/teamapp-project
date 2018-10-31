@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   
-  root 'welcome#index'
-
-  get 'welcome/index'
+  root 'login#index'
+  
+  get 'login/index'
   get 'register/index'
 
   resources :teams do
